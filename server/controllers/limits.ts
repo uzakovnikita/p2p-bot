@@ -1,17 +1,20 @@
-import { limitState } from "../data";
-import {RequestHandler} from "express";
+import { state } from "../state";
+import { RequestHandler } from "express";
+import { ApiStatuses } from "./constants";
 export const setLimit: RequestHandler = (req, res, next) => {
+  const { limit } = req.body;
 
-    const {limit} = req.body;
-    console.log(req.body)
-
-    if (!Number.isNaN(Number(limit))) {
-        limitState.value = Number(limit);
-        return res.status(200).json({status: "ok"});
-    }
-    return res.status(400).json({error: "Invalid value of limit"});
-}
+  if (!Number.isNaN(Number(limit))) {
+    state.limitState.value = Number(limit);
+    return res.status(200).json({ status: ApiStatuses.ok });
+  }
+  return res
+    .status(400)
+    .json({ error: "Invalid value of limit", status: ApiStatuses.error });
+};
 
 export const getLimit: RequestHandler = (req, res, next) => {
-    return res.status(200).json({limit: limitState.value});
-}
+  return res
+    .status(200)
+    .json({ limit: state.limitState.value, status: ApiStatuses.ok });
+};

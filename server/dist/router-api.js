@@ -2,7 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.routerApi = void 0;
 var express_1 = require("express");
-var limits_1 = require("./controllers/limits");
+var controllers_1 = require("./controllers");
 exports.routerApi = (0, express_1.Router)();
-exports.routerApi.get("/limits", limits_1.getLimit);
-exports.routerApi.post("/limits", limits_1.setLimit);
+exports.routerApi.get("/limits", controllers_1.getLimit);
+exports.routerApi.post("/limits", controllers_1.setLimit);
+exports.routerApi.get("/price_step", controllers_1.getPriceStep);
+exports.routerApi.post("/price_step", controllers_1.setPriceStep);

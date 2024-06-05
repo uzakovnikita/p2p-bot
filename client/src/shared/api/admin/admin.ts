@@ -1,3 +1,6 @@
+import { BadRequestError, InvalidResponse, ServerError } from "../errors";
+import { ApiStatuses } from "./constants";
+
 class AdminApi {
   host: string;
   constructor() {
@@ -12,22 +15,38 @@ class AdminApi {
       },
       body: JSON.stringify(data),
     });
+    
+    let jsonData;
+
+    try {
+      jsonData = await response.json();
+    } catch (e) {
+      throw new InvalidResponse(e as SyntaxError);
+    }
+
     if (response.ok) {
-      try {
-        return response.json();
-      } catch (e) {
-        throw new Error("Invalid response from server");
-      }
+      return jsonData;
     } else {
-      throw new Error(response.statusText);
+      const errorMessage = jsonData.error || "Server error";
+      switch (response.status) {
+        case 400:
+          throw new BadRequestError(errorMessage);
+        default:
+          throw new ServerError(errorMessage);
+      }
     }
   }
 
-  async get<T = Record<string, any>>(path: string): Promise<T> {
+  async get<T = Record<string, any>>(
+    path: string
+  ): Promise<T & { status: ApiStatuses }> {
     return this.makeRequest("GET", path);
   }
 
-  post<T = Record<string, any>>(path: string, data: Record<string, any>): Promise<T> {
+  post<Data extends Record<string, any> = Record<string, any>>(
+    path: string,
+    data: Data
+  ): Promise<{ status: ApiStatuses }> {
     return this.makeRequest("POST", path, data);
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import styles from "./RealtimeInputDisplay.module.css";
 export const RealtimeInputDisplay: React.FC<{
   text: string;
@@ -22,7 +22,14 @@ export const RealtimeInputDisplay: React.FC<{
   const [isProgress, setProgress] = React.useState(false);
   return (
     <div className={styles.root}>
-      <div className={styles.text}>{text}</div>
+      <Typography
+        variant="body1"
+        fontWeight={500}
+        className={styles.text}
+        display={"block"}
+      >
+        {text}
+      </Typography>
 
       <TextField
         name={label}
