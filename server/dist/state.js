@@ -7,7 +7,11 @@ var limitState = {
 var priceStep = {
     value: 10,
 };
+var power = {
+    on: false,
+};
 exports.state = {
     limitState: limitState,
     priceStep: priceStep,
+    power: power,
 };

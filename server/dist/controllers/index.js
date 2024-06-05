@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./limits"), exports);
 __exportStar(require("./priceStep"), exports);
 __exportStar(require("./spread"), exports);
+__exportStar(require("./power"), exports);

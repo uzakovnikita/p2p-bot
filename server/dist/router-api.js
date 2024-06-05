@@ -8,3 +8,6 @@ exports.routerApi.get("/limits", controllers_1.getLimit);
 exports.routerApi.post("/limits", controllers_1.setLimit);
 exports.routerApi.get("/price_step", controllers_1.getPriceStep);
 exports.routerApi.post("/price_step", controllers_1.setPriceStep);
+exports.routerApi.get("/power", controllers_1.getPower);
+exports.routerApi.post("/power_on", controllers_1.powerOn);
+exports.routerApi.post("/power_off", controllers_1.powerOff);

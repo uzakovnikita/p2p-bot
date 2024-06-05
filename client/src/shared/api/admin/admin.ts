@@ -43,10 +43,10 @@ class AdminApi {
     return this.makeRequest("GET", path);
   }
 
-  post<Data extends Record<string, any> = Record<string, any>>(
+  post<Data extends Record<string, any> = Record<string, any>, Response = Record<string, any>>(
     path: string,
-    data: Data
-  ): Promise<{ status: ApiStatuses }> {
+    data?: Data
+  ): Promise<{ status: ApiStatuses } & Response> {
     return this.makeRequest("POST", path, data);
   }
 }
