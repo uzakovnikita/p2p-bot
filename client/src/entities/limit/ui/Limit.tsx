@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import { TextField, Button } from "@mui/material";
-import { adminApi } from "../../../shared/api";
-import styles from "./Form.module.css";
 import { RealtimeInputDisplay } from "../../../shared/ui/realtimeInputDisplay/RealtimeInputDisplay";
 import { getCurrentLimit, setCurrentLimit } from "../api";
+
+import styles from "./Form.module.css";
 export const Limit = () => {
   const sendLimit = async (limit: string) => {
     await setCurrentLimit(limit);
-    const currentLimitValue = await getCurrentLimit();
-    setCurrentValue(currentLimitValue);
+    const { limit: currentLimit } = await getCurrentLimit();
+    setCurrentValue(currentLimit);
   };
 
   useEffect(() => {
     (async () => {
-      const currentLimitValue = await getCurrentLimit();
-      setCurrentValue(currentLimitValue);
+      const { limit: currentLimit } = await getCurrentLimit();
+      setCurrentValue(currentLimit);
     })();
   }, []);
 

@@ -19,7 +19,7 @@ export const Power = () => {
 
   useEffect(() => {
     (async () => {
-      const currentPower = await getPower();
+      const { power: currentPower } = await getPower();
       setPower(currentPower);
     })();
   }, []);

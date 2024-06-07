@@ -5,14 +5,14 @@ import { getCurrentPriceStep, setCurrentPriceStep } from "../api";
 export const PriceStep = () => {
   const sendLimit = async (priceStep: string) => {
     await setCurrentPriceStep(priceStep);
-    const currentLimitValue = await getCurrentPriceStep();
-    setCurrentValue(currentLimitValue);
+    const { priceStep: priceStepCurrent } = await getCurrentPriceStep();
+    setCurrentValue(priceStepCurrent);
   };
 
   useEffect(() => {
     (async () => {
-      const currentLimitValue = await getCurrentPriceStep();
-      setCurrentValue(currentLimitValue);
+      const { priceStep: priceStepCurrent } = await getCurrentPriceStep();
+      setCurrentValue(priceStepCurrent);
     })();
   }, []);
 

@@ -1,9 +1,15 @@
 .root {
   display: flex;
-  width: 100%;
-  height: 100%;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: auto;
 }

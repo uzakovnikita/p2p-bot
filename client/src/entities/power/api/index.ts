@@ -1,8 +1,9 @@
 import { adminApi } from "../../../shared/api";
 import { Power } from "../model";
+import { transformPower } from "./transform";
 
 export const getPower = async () => {
-  return (await adminApi.get<Power>("/power")).power;
+  return transformPower(await adminApi.get<Power>("/power"));
 };
 
 export const powerOff = () => {
