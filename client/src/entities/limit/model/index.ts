@@ -1,3 +1,3 @@
 export type Limit = {
-  limit: string;
+  limit: number;
 };

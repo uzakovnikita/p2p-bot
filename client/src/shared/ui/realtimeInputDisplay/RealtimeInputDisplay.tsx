@@ -5,17 +5,12 @@ import styles from "./RealtimeInputDisplay.module.css";
 export const RealtimeInputDisplay: React.FC<{
   text: string;
   label: string;
-  onSubmit: (value: string) => Promise<void>;
+  onSubmit?: ((value: string) => Promise<void> );
 }> = ({ text, label, onSubmit }) => {
-  const sendLimit = async () => {
+  const handleSubmit = async () => {
     setProgress(true);
-    try {
-      await onSubmit(value);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setProgress(false);
-    }
+    onSubmit && await onSubmit(value);
+    setProgress(false);
   };
 
   const [value, setValue] = React.useState("");
@@ -42,7 +37,11 @@ export const RealtimeInputDisplay: React.FC<{
         }}
       />
       <div className={styles.btnWrapper}>
-        <Button variant="contained" onClick={sendLimit} disabled={isProgress}>
+        <Button
+          variant="contained"
+          onClick={handleSubmit}
+          disabled={isProgress}
+        >
           применить
         </Button>
       </div>

@@ -1,3 +1,3 @@
 export const config = {
-  adminApiUrl: "http://localhost:4000/api",
+  adminApiUrl: process.env.ADMIN_API_URL || "http://localhost:4000/api",
 };

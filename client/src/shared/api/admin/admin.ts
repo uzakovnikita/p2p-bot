@@ -51,10 +51,12 @@ class AdminApi {
   }
 
   async get<T = Record<string, any>>(
-    path: string
+    path: string,
+    query?: Record<string, any>
   ): Promise<(T & { status: ApiStatuses }) | { status: ApiStatuses }> {
     try {
-      const data = await this.makeRequest("GET", path);
+      const url = `${path}?${new URLSearchParams(query)}`;
+      const data = await this.makeRequest("GET", url);
       return {
         ...data,
         status: ApiStatuses.ok,

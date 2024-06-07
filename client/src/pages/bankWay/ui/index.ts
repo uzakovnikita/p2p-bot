@@ -1,1 +1,0 @@
-export { BankWay } from "./BankWay";

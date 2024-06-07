@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  margin: 10px !important;
+}
+
+.btnWrapper {
+  margin: 10px;
+}

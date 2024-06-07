@@ -13,4 +13,12 @@ export enum Pages {
   SberSell = "sber_sell",
   TinkBuy = "tink_buy",
   TinkSell = "tink_sell",
+  NotFound = "not_found",
+}
+
+export enum Ads {
+  SberBuy = "sber_buy",
+  SberSell = "sber_sell",
+  TinkBuy = "tink_buy",
+  TinkSell = "tink_sell",
 }

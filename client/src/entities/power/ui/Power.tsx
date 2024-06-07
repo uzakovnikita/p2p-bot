@@ -1,20 +1,21 @@
+import { observer } from "mobx-react-lite";
+import { globalStore } from "../../../shared/store/global.store";
 import { FormControlLabel, Switch } from "@mui/material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getPower, powerOff, powerOn } from "../api";
-export const Power = () => {
+import { Ads } from "../../../shared/constants";
+
+export const Power: React.FC<{ ad: Ads }> = observer(({ ad }) => {
   const [power, setPower] = useState(false);
   const [inProgress, setInProgress] = useState(false);
 
   const sendPower = async () => {
-    try {
-      setInProgress(true);
-      power ? await powerOff() : await powerOn();
-      setPower(!power);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setInProgress(false);
-    }
+    setInProgress(true);
+    power ? await powerOff() : await powerOn();
+    power ? globalStore.adOff(ad) : globalStore.adOn(ad);
+    const { power: currentPower } = await getPower();
+    setPower(currentPower);
+    setInProgress(false);
   };
 
   useEffect(() => {
@@ -37,4 +38,4 @@ export const Power = () => {
       label="ON/OFF"
     />
   );
-};
+});
