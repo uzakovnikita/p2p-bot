@@ -1,3 +1,3 @@
 export type CurrentPrice = {
-  currentPrice: number;
+  currentPrice: string;
 };

@@ -1,7 +1,8 @@
 import { Limit } from "../model";
 
 export const transformLimit = ({
-  limit,
+  min,
+  max,
 }: Partial<Limit> & Record<string, any>): Limit => {
-  return { limit: limit ?? 0 };
+  return { min: min ?? "", max: max ?? "" };
 };

@@ -50,7 +50,7 @@ export function NavTabs() {
   const currentTab = routerLists.indexOf(pathname);
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", zIndex: 10, opacity: 1, bgcolor: "background.paper" }}>
       <Tabs
         value={currentTab}
         aria-label="nav tabs example"

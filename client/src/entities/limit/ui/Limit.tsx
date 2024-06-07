@@ -1,29 +1,13 @@
-import { useEffect, useState } from "react";
-
-import { RealtimeInputDisplay } from "../../../shared/ui/realtimeInputDisplay/RealtimeInputDisplay";
 import { getCurrentLimit, setCurrentLimit } from "../api";
+import { RealtimeInputInterval } from "../../../shared/ui/realtimeInputInterval";
+import { Ads } from "../../../shared/constants";
 
-export const Limit = () => {
-  const sendLimit = async (limit: string) => {
-    await setCurrentLimit(limit);
-    const { limit: currentLimit } = await getCurrentLimit();
-    setCurrentValue(currentLimit);
-  };
-
-  useEffect(() => {
-    (async () => {
-      const { limit: currentLimit } = await getCurrentLimit();
-      setCurrentValue(currentLimit);
-    })();
-  }, []);
-
-  const [currentValue, setCurrentValue] = useState(0);
-
+export const Limit: React.FC<{ ad: Ads }> = ({ ad }) => {
   return (
-    <RealtimeInputDisplay
-      onSubmit={sendLimit}
-      label="лимиты"
-      text={`Текущее значение лимита: ${currentValue}`}
+    <RealtimeInputInterval
+      label="лимит"
+      setValue={(value) => setCurrentLimit({ ...value, ad })}
+      getValue={async () => await getCurrentLimit({ ad })}
     />
   );
 };

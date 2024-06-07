@@ -52,7 +52,7 @@ export const RealtimeInputInterval: React.FC<{
         value={minValue}
         type="number"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setMinValue(event.target.value ?? "0");
+          setMinValue(event.target.value ?? "");
         }}
       />
       <TextField
@@ -62,7 +62,7 @@ export const RealtimeInputInterval: React.FC<{
         value={maxValue}
         type="number"
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setMaxValue(event.target.value ?? "0");
+          setMaxValue(event.target.value ?? "");
         }}
       />
       <div className={styles.btnWrapper}>
