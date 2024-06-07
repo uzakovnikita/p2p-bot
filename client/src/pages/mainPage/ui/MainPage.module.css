@@ -1,3 +1,11 @@
 .blockWrapper {
   margin: 20px 0;
 }
+
+
+.tabs {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
