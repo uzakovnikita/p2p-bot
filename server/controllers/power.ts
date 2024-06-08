@@ -47,6 +47,7 @@ export const getPower: RequestHandler = (req, res) => {
 export const getWorkingAds: RequestHandler = (_, res) => {
   return res.status(200).json({
     ads: db.ads.filter((ad) => ad.power).map((ad) => ad.type),
+    ids:  db.ads.filter((ad) => ad.power).map((ad) => ad.id),
     status: ApiStatuses.ok,
   });
 };

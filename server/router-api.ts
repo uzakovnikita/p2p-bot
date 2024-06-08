@@ -15,6 +15,7 @@ import {
   setCurrentPrice,
   getAdId,
   setAdId,
+  getAdIds,
 } from "./controllers";
 import { ApiStatuses } from "./controllers/constants";
 import { Errors } from "./constants";
@@ -36,6 +37,7 @@ routerApi.post("/price_interval", setPriceInterval);
 routerApi.get("/working_ads", getWorkingAds);
 routerApi.get("/ad_id", getAdId);
 routerApi.post("/ad_id", setAdId);
+routerApi.get('/ad_ids', getAdIds)
 
 routerApi.all("*", (req, res) => {
   res.status(404).json({ status: ApiStatuses.error, error: Errors.NotFound });
