@@ -4,3 +4,4 @@ export * from "./spread";
 export * from "./power";
 export * from "./currentPrice";
 export * from "./priceInterval";
+export * from "./ad";

@@ -6,6 +6,7 @@ import { Ads } from "../../../shared/constants";
 import { PriceInterval } from "../../../entities/priceInterval";
 import { Spread } from "../../../entities/spread";
 import { CurrentPrice } from "../../../entities/currentPrice";
+import { Id } from "../../../entities/ad/";
 
 import styles from "./Ad.module.css";
 
@@ -18,6 +19,9 @@ export const Ad: React.FC<Props> = ({ ad }) => {
     <div className={styles.root}>
       <div className={styles.blockWrapper}>
         <Power ad={ad} />
+      </div>
+      <div className={styles.blockWrapper}>
+        <Id ad={ad} />
       </div>
       <div className={styles.blockWrapper}>
         <Spread ad={ad} />

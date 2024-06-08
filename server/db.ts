@@ -20,6 +20,7 @@ export const db = {
         spread: "",
         type: adList[index],
         operation: operationList[index % 2],
+        id: "",
       };
     }),
 };

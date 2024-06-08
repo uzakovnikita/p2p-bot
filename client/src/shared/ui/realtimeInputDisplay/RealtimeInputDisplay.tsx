@@ -5,11 +5,12 @@ import styles from "./RealtimeInputDisplay.module.css";
 export const RealtimeInputDisplay: React.FC<{
   text: string;
   label: string;
-  onSubmit?: ((value: string) => Promise<void> );
-}> = ({ text, label, onSubmit }) => {
+  onSubmit?: (value: string) => Promise<void>;
+  type?: string;
+}> = ({ text, label, onSubmit, type }) => {
   const handleSubmit = async () => {
     setProgress(true);
-    onSubmit && await onSubmit(value);
+    onSubmit && (await onSubmit(value));
     setProgress(false);
   };
 
@@ -31,7 +32,7 @@ export const RealtimeInputDisplay: React.FC<{
         label={label}
         required
         value={value}
-        type="number"
+        type={type || "number"}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           setValue(event.target.value);
         }}

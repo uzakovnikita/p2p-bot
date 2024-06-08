@@ -14,4 +14,5 @@ export interface IAd {
   spread: string;
   type: Ads;
   operation: Operations;
+  id: string;
 }
