@@ -8,6 +8,7 @@ import { Spread } from "../../../entities/spread";
 import { CurrentPrice } from "../../../entities/currentPrice";
 
 import styles from "./Ad.module.css";
+
 type Props = {
   ad: Ads;
 };

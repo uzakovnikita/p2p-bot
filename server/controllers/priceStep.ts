@@ -1,20 +1,29 @@
-import { state } from "../state";
 import { RequestHandler } from "express";
 import { ApiStatuses } from "./constants";
-export const setPriceStep: RequestHandler = (req, res, next) => {
+import { getRequestedAdFromDb } from "./_utils";
+import { Errors } from "../constants";
+export const setPriceStep: RequestHandler = (req, res) => {
   const { priceStep } = req.body;
+  const currentAd = getRequestedAdFromDb(req);
 
-  if (!Number.isNaN(Number(priceStep))) {
-    state.priceStep.value = Number(priceStep);
+  if (currentAd) {
+    currentAd.priceStep = priceStep;
     return res.status(200).json({ status: ApiStatuses.ok });
   }
   return res
     .status(400)
-    .json({ error: "Invalid value of priceStep", status: ApiStatuses.error });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.error });
 };
 
-export const getPriceStep: RequestHandler = (req, res, next) => {
+export const getPriceStep: RequestHandler = (req, res) => {
+  const currentAd = getRequestedAdFromDb(req);
+  if (currentAd) {
+    return res
+      .status(200)
+      .json({ priceStep: currentAd.priceStep, status: ApiStatuses.ok });
+  }
+
   return res
-    .status(200)
-    .json({ priceStep: state.priceStep.value, status: ApiStatuses.ok });
+    .status(400)
+    .json({ status: ApiStatuses.error, error: Errors.AdNotFound });
 };

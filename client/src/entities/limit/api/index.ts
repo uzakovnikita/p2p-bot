@@ -4,7 +4,9 @@ import { Limit } from "../model";
 import { transformLimit } from "./transform";
 
 export const getCurrentLimit = async ({ ad }: { ad: Ads }) => {
-  return transformLimit(await adminApi.get<Limit>("/limits", { ad }));
+  return transformLimit(
+    await adminApi.get<{ limit: Limit }>("/limits", { ad })
+  );
 };
 
 export const setCurrentLimit = ({
@@ -16,5 +18,5 @@ export const setCurrentLimit = ({
   max: Limit["max"];
   ad: Ads;
 }) => {
-  return adminApi.post<Limit & {ad: Ads}>("/limits", { min, max, ad });
+  return adminApi.post<Limit & { ad: Ads }>("/limits", { min, max, ad });
 };

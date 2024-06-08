@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "nodemon --watch '*.ts' --exec 'tsc && node dist/index.js'"
+    "dev": "nodemon --exec ts-node ./index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "react": "^18.3.1"
   },
   "devDependencies": {
+    "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   }
 }

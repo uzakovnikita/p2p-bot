@@ -16,6 +16,10 @@ class GlobalStore {
     this._workingAds = this._workingAds.filter((workingAd) => workingAd !== ad);
   }
 
+  set setWorkingAds(ads: Ads[]) {
+    this._workingAds = ads;
+  }
+
   get getWorkingAds() {
     return this._workingAds;
   }

@@ -5,7 +5,9 @@ import { transformPriceStep } from "./transform";
 
 export const getCurrentPriceInterval = async ({ ad }: { ad: Ads }) => {
   return transformPriceStep(
-    await adminApi.get<PriceInterval>("/price_interval", { ad })
+    await adminApi.get<{ priceInterval: PriceInterval }>("/price_interval", {
+      ad,
+    })
   );
 };
 

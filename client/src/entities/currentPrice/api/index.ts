@@ -5,6 +5,6 @@ import { transformCurrentPrice } from "./transform";
 
 export const getCurrentPrice = async ({ ad }: { ad: Ads }) => {
   return transformCurrentPrice(
-    await adminApi.get<CurrentPrice>("/price_step", { ad })
+    await adminApi.get<CurrentPrice>("/current_price", { ad })
   );
 };

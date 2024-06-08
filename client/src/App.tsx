@@ -9,7 +9,16 @@ import "@fontsource/roboto/700.css";
 import { Layout } from "./shared/ui/layout";
 import { Ads, Pages } from "./shared/constants";
 import { NotFound } from "./pages/notFound";
+import { useEffect } from "react";
+import { getWorkingAds } from "./entities/ad";
+import { globalStore } from "./shared/store/global.store";
 function App() {
+  useEffect(() => {
+    (async () => {
+      const workingAds = await getWorkingAds();
+      globalStore.setWorkingAds = workingAds;
+    })();
+  });
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

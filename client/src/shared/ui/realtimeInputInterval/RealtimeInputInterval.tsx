@@ -68,7 +68,7 @@ export const RealtimeInputInterval: React.FC<{
       <div className={styles.btnWrapper}>
         <Button
           variant="contained"
-          onClick={() => sendPriceInterval}
+          onClick={() => sendPriceInterval(minValue, maxValue)}
           disabled={isProgress}
         >
           применить

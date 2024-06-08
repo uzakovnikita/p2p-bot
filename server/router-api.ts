@@ -7,7 +7,14 @@ import {
   getPower,
   powerOff,
   powerOn,
+  getSpread,
+  getCurrentPrice,
+  getPriceInterval,
+  setPriceInterval,
+  getWorkingAds,
 } from "./controllers";
+import { ApiStatuses } from "./controllers/constants";
+import { Errors } from "./constants";
 
 export const routerApi = Router();
 
@@ -18,3 +25,11 @@ routerApi.post("/price_step", setPriceStep);
 routerApi.get("/power", getPower);
 routerApi.post("/power_on", powerOn);
 routerApi.post("/power_off", powerOff);
+routerApi.get("/spread", getSpread);
+routerApi.get("/current_price", getCurrentPrice);
+routerApi.get("/price_interval", getPriceInterval);
+routerApi.post("/price_interval", setPriceInterval);
+routerApi.get("/working_ads", getWorkingAds);
+routerApi.all("*", (req, res) => {
+  res.status(404).json({ status: ApiStatuses.error, error: Errors.NotFound });
+});

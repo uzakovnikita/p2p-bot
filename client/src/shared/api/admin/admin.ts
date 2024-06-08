@@ -27,6 +27,10 @@ class AdminApi {
       throw new InternalAdminApiError(e as Error);
     }
 
+    if (response.status === 500) {
+      throw new ServerError("Server error");
+    }
+
     let jsonData: {
       [key: string]: any;
       status: ApiStatuses;
@@ -41,13 +45,11 @@ class AdminApi {
 
     if (response.ok) {
       return jsonData;
-    } else {
-      const errorMessage = jsonData.error || "Server error";
-      if (response.status === 400) {
-        throw new BadRequestError(errorMessage);
-      }
-      throw new ServerError(errorMessage);
     }
+
+    const errorMessage = jsonData.error || "Bad request error";
+
+    throw new BadRequestError(errorMessage);
   }
 
   async get<T = Record<string, any>>(

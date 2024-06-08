@@ -18,3 +18,6 @@ __exportStar(require("./limits"), exports);
 __exportStar(require("./priceStep"), exports);
 __exportStar(require("./spread"), exports);
 __exportStar(require("./power"), exports);
+__exportStar(require("./currentPrice"), exports);
+__exportStar(require("./priceInterval"), exports);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9jb250cm9sbGVycy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsMkNBQXlCO0FBQ3pCLDhDQUE0QjtBQUM1QiwyQ0FBeUI7QUFDekIsMENBQXdCO0FBQ3hCLGlEQUErQjtBQUMvQixrREFBZ0MifQ==

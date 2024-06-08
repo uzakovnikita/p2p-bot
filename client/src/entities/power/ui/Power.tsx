@@ -11,19 +11,20 @@ export const Power: React.FC<{ ad: Ads }> = observer(({ ad }) => {
 
   const sendPower = async () => {
     setInProgress(true);
-    power ? await powerOff() : await powerOn();
+    power ? await powerOff({ ad }) : await powerOn({ ad });
     power ? globalStore.adOff(ad) : globalStore.adOn(ad);
-    const { power: currentPower } = await getPower();
+    const { power: currentPower } = await getPower({ ad });
     setPower(currentPower);
     setInProgress(false);
   };
 
   useEffect(() => {
     (async () => {
-      const { power: currentPower } = await getPower();
+      const { power: currentPower } = await getPower({ ad });
+      currentPower ? globalStore.adOn(ad) : globalStore.adOff(ad);
       setPower(currentPower);
     })();
-  }, []);
+  }, [ad]);
 
   return (
     <FormControlLabel

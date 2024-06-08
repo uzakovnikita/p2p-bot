@@ -4,7 +4,7 @@ import { RealtimeInputDisplay } from "../../../shared/ui/realtimeInputDisplay/Re
 import { getCurrentPriceStep, setCurrentPriceStep } from "../api";
 import { Ads } from "../../../shared/constants";
 export const PriceStep: React.FC<{ ad: Ads }> = ({ ad }) => {
-  const sendLimit = async (priceStep: string) => {
+  const sendPriceStep = async (priceStep: string) => {
     await setCurrentPriceStep({ priceStep, ad });
     const { priceStep: priceStepCurrent } = await getCurrentPriceStep({ ad });
     setCurrentValue(priceStepCurrent);
@@ -15,13 +15,13 @@ export const PriceStep: React.FC<{ ad: Ads }> = ({ ad }) => {
       const { priceStep: priceStepCurrent } = await getCurrentPriceStep({ ad });
       setCurrentValue(priceStepCurrent);
     })();
-  }, []);
+  }, [ad]);
 
   const [currentValue, setCurrentValue] = useState("");
 
   return (
     <RealtimeInputDisplay
-      onSubmit={sendLimit}
+      onSubmit={sendPriceStep}
       label="шаг цены"
       text={`Текущее значение шага цены: ${currentValue}`}
     />

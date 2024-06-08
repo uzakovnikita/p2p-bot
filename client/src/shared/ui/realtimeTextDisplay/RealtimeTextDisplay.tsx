@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 import { Ads } from "../../constants";
 import { globalStore } from "../../store/global.store";
 
-const INTERVAL_BETWEEN_REQUESTS = 1000;
+const INTERVAL_BETWEEN_REQUESTS = 10000;
 
 export const RealtimeTextDisplay: React.FC<{
   getValue: () => Promise<string | number>;
@@ -13,17 +13,17 @@ export const RealtimeTextDisplay: React.FC<{
   ad: Ads;
 }> = observer(({ getValue, ad, label }) => {
   useEffect(() => {
+    let interval: NodeJS.Timer;
     (async () => {
       const value = await getValue();
       setCurrentValue(String(value));
+      interval = setInterval(async () => {
+        if (globalStore.getWorkingAds.includes(ad)) {
+          const currentValue = await getValue();
+          setCurrentValue(String(currentValue));
+        }
+      }, INTERVAL_BETWEEN_REQUESTS);
     })();
-
-    const interval = setInterval(async () => {
-      if (globalStore.getWorkingAds.includes(ad)) {
-        const currentValue = await getValue();
-        setCurrentValue(String(currentValue));
-      }
-    }, INTERVAL_BETWEEN_REQUESTS);
 
     return () => {
       clearInterval(interval);
