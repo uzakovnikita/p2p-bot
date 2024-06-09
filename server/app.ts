@@ -10,6 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); 
 app.use("/api", routerApi);
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Admin app listening on port ${port}`);
 });
