@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import "./App.css";
 import { Ad } from "./pages/ad";
@@ -22,11 +22,8 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route
-          path={`/${Pages.SberBuy}`}
-          index
-          element={<Ad ad={Ads.SberBuy} />}
-        />
+        <Route index element={<Navigate to={`/${Pages.SberBuy}`} />} />
+        <Route path={`/${Pages.SberBuy}`} element={<Ad ad={Ads.SberBuy} />} />
         <Route path={`/${Pages.SberSell}`} element={<Ad ad={Ads.SberSell} />} />
         <Route path={`/${Pages.TinkBuy}`} element={<Ad ad={Ads.TinkBuy} />} />
         <Route path={`/${Pages.TinkSell}`} element={<Ad ad={Ads.TinkSell} />} />

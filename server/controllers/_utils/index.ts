@@ -9,13 +9,21 @@ export const getAdFromDb = (ad: Ads | string) => {
   });
 }
   
+export const getAdById = (id: string) => {
+  return db.ads.find((item) => {
+    return item.id === id;
+  });
+}
 
 export const getRequestedAdFromDb = (req: Request) => {
   const {
-    query: { ad: queryAd },
-    body: { ad: dataAd },
+    query: { ad: queryAd, id: queryId },
+    body: { ad: dataAd, id: dataId },
   } = req;
 
+  if (queryId || dataId) {
+    return getAdById((queryId || dataId) as string);
+  }
 
   return getAdFromDb(queryAd || dataAd);
 };

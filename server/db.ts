@@ -1,26 +1,74 @@
-import { IAd } from "models";
-import { adList, operationList } from "./models/constants";
+import {  Ads, Operations } from "./models/constants";
 
 export const db = {
-  ads: Array(4)
-    .fill(0, 0, 4)
-    .map<IAd>((val, index) => {
-      return {
-        power: false,
-        currentPrice: "",
-        limit: {
-          min: "",
-          max: "",
-        },
-        priceInterval: {
-          min: "",
-          max: "",
-        },
-        priceStep: "",
-        spread: "",
-        type: adList[index],
-        operation: operationList[index % 2],
-        id: "",
-      };
-    }),
+  ads: [
+    {
+      power: false,
+      currentPrice: "",
+      limit: {
+        min: "1000",
+        max: "5000",
+      },
+      priceInterval: {
+        min: "6228300",
+        max: "6228400",
+      },
+      priceStep: "1",
+      spread: "",
+      type: Ads.SberBuy,
+      operation: Operations.Buy,
+      id: "8a8ac005-2294-486c-b0d5-8631c983cbbd",
+    },
+    {
+      power: false,
+      currentPrice: "",
+      limit: {
+        min: "1000",
+        max: "5000",
+      },
+      priceInterval: {
+        min: "6228500",
+        max: "6228700",
+      },
+      priceStep: "1",
+      spread: "",
+      type: Ads.SberSell,
+      operation: Operations.Sell,
+      id: "68407e07-d42f-4ba6-8394-98020082cc72",
+    },
+    {
+      power: false,
+      currentPrice: "",
+      limit: {
+        min: "1000",
+        max: "5000",
+      },
+      priceInterval: {
+        min: "6228300",
+        max: "6228400",
+      },
+      priceStep: "1",
+      spread: "",
+      type: Ads.TinkBuy,
+      operation: Operations.Buy,
+      id: "60f914ec-bacd-4540-a5c6-32c801fd9b93",
+    },
+    {
+      power: false,
+      currentPrice: "",
+      limit: {
+        min: "1000",
+        max: "5000",
+      },
+      priceInterval: {
+        min: "6228500",
+        max: "6228700",
+      },
+      priceStep: "1",
+      spread: "",
+      type: Ads.TinkSell,
+      operation: Operations.Sell,
+      id: "6c8b883f-5d9c-49da-92b9-a1c8206ed257",
+    },
+  ],
 };

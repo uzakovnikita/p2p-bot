@@ -8,11 +8,11 @@ var getCurrentPrice = function (req, res) {
     if (currentAd) {
         return res
             .status(200)
-            .json({ currentPrice: currentAd.currentPrice, status: constants_1.ApiStatuses.ok });
+            .json({ currentPrice: currentAd.currentPrice, status: constants_1.ApiStatuses.Ok });
     }
     return res
         .status(400)
-        .json({ status: constants_1.ApiStatuses.error, error: constants_1.Errors.AdNotFound });
+        .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });
 };
 exports.getCurrentPrice = getCurrentPrice;
 //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY3VycmVudFByaWNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vY29udHJvbGxlcnMvY3VycmVudFByaWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLG1DQUFnRDtBQUNoRCx5Q0FBa0Q7QUFFM0MsSUFBTSxlQUFlLEdBQW1CLFVBQUMsR0FBRyxFQUFFLEdBQUc7SUFDdEQsSUFBTSxTQUFTLEdBQUcsSUFBQSw2QkFBb0IsRUFBQyxHQUFHLENBQUMsQ0FBQztJQUU1QyxJQUFJLFNBQVMsRUFBRSxDQUFDO1FBQ2QsT0FBTyxHQUFHO2FBQ1AsTUFBTSxDQUFDLEdBQUcsQ0FBQzthQUNYLElBQUksQ0FBQyxFQUFFLFlBQVksRUFBRSxTQUFTLENBQUMsWUFBWSxFQUFFLE1BQU0sRUFBRSx1QkFBVyxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUM7SUFDNUUsQ0FBQztJQUVELE9BQU8sR0FBRztTQUNQLE1BQU0sQ0FBQyxHQUFHLENBQUM7U0FDWCxJQUFJLENBQUMsRUFBRSxNQUFNLEVBQUUsdUJBQVcsQ0FBQyxLQUFLLEVBQUUsS0FBSyxFQUFFLGtCQUFNLENBQUMsVUFBVSxFQUFFLENBQUMsQ0FBQztBQUNuRSxDQUFDLENBQUM7QUFaVyxRQUFBLGVBQWUsbUJBWTFCIn0=

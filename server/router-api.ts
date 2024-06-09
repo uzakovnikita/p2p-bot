@@ -16,6 +16,8 @@ import {
   getAdId,
   setAdId,
   getAdIds,
+  getAdById,
+  getAllAds,
 } from "./controllers";
 import { ApiStatuses } from "./controllers/constants";
 import { Errors } from "./constants";
@@ -37,8 +39,10 @@ routerApi.post("/price_interval", setPriceInterval);
 routerApi.get("/working_ads", getWorkingAds);
 routerApi.get("/ad_id", getAdId);
 routerApi.post("/ad_id", setAdId);
-routerApi.get('/ad_ids', getAdIds)
+routerApi.get("/ad_ids", getAdIds);
+routerApi.get("/ad_by_id", getAdById);
+routerApi.get("/all_ads", getAllAds);
 
 routerApi.all("*", (req, res) => {
-  res.status(404).json({ status: ApiStatuses.error, error: Errors.NotFound });
+  res.status(404).json({ status: ApiStatuses.Error, error: Errors.NotFound });
 });

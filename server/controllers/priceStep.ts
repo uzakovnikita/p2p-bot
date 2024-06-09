@@ -8,11 +8,11 @@ export const setPriceStep: RequestHandler = (req, res) => {
 
   if (currentAd) {
     currentAd.priceStep = priceStep;
-    return res.status(200).json({ status: ApiStatuses.ok });
+    return res.status(200).json({ status: ApiStatuses.Ok });
   }
   return res
     .status(400)
-    .json({ error: Errors.AdNotFound, status: ApiStatuses.error });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.Error });
 };
 
 export const getPriceStep: RequestHandler = (req, res) => {
@@ -20,10 +20,10 @@ export const getPriceStep: RequestHandler = (req, res) => {
   if (currentAd) {
     return res
       .status(200)
-      .json({ priceStep: currentAd.priceStep, status: ApiStatuses.ok });
+      .json({ priceStep: currentAd.priceStep, status: ApiStatuses.Ok });
   }
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.error, error: Errors.AdNotFound });
+    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
 };

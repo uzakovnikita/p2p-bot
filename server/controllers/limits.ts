@@ -8,11 +8,11 @@ export const setLimit: RequestHandler = (req, res, next) => {
   if (max && min && currentAd) {
     const currentAd = getRequestedAdFromDb(req);
     currentAd.limit = { max, min };
-    return res.status(200).json({ status: ApiStatuses.ok, max, min });
+    return res.status(200).json({ status: ApiStatuses.Ok, max, min });
   }
   return res.status(400).json({
     error: "Invalid value of limit or ad not found",
-    status: ApiStatuses.error,
+    status: ApiStatuses.Error,
   });
 };
 
@@ -22,11 +22,11 @@ export const getLimit: RequestHandler = (req, res, next) => {
   if (currentAd) {
     return res.status(200).json({
       limit: currentAd.limit,
-      status: ApiStatuses.ok,
+      status: ApiStatuses.Ok,
     });
   }
 
   return res
     .status(400)
-    .json({ error: Errors.AdNotFound, status: ApiStatuses.error });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.Error });
 };

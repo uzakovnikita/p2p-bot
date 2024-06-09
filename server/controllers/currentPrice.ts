@@ -9,12 +9,12 @@ export const getCurrentPrice: RequestHandler = (req, res) => {
   if (currentAd) {
     return res
       .status(200)
-      .json({ currentPrice: currentAd.currentPrice, status: ApiStatuses.ok });
+      .json({ currentPrice: currentAd.currentPrice, status: ApiStatuses.Ok });
   }
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.error, error: Errors.AdNotFound });
+    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
 };
 
 export const setCurrentPrice: RequestHandler = (req, res) => {
@@ -26,10 +26,10 @@ export const setCurrentPrice: RequestHandler = (req, res) => {
 
     return res
       .status(200)
-      .json({ currentPrice: currentAd.currentPrice, status: ApiStatuses.ok });
+      .json({ currentPrice: currentAd.currentPrice, status: ApiStatuses.Ok });
   }
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.error, error: Errors.AdNotFound });
+    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
 };
