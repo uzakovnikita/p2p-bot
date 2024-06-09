@@ -10,7 +10,7 @@ import { ApiStatuses } from "./constants";
 class AdminApi {
   host: string;
   constructor() {
-    this.host = config.adminApiUrl;
+    this.host = config.adminApiUrl || '';
   }
 
   async makeRequest(method: string, path: string, data?: Record<string, any>) {
