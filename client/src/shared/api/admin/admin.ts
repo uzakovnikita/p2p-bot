@@ -15,7 +15,6 @@ class AdminApi {
 
   async makeRequest(method: string, path: string, data?: Record<string, any>) {
     let response: Response;
-    console.log(`${this.host}${path}`)
     try {
       response = await fetch(`${this.host}${path}`, {
         method,
