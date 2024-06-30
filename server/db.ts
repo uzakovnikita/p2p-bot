@@ -4,7 +4,7 @@ export const db = {
   ads: [
     {
       power: false,
-      currentPrice: "",
+      currentPrice: "5210001.0",
       limit: {
         min: "1000",
         max: "5000",
@@ -21,7 +21,7 @@ export const db = {
     },
     {
       power: false,
-      currentPrice: "",
+      currentPrice: "5652256.18",
       limit: {
         min: "1000",
         max: "5000",
@@ -38,7 +38,7 @@ export const db = {
     },
     {
       power: false,
-      currentPrice: "",
+      currentPrice: "5157907.41",
       limit: {
         min: "1000",
         max: "5000",
@@ -55,7 +55,7 @@ export const db = {
     },
     {
       power: false,
-      currentPrice: "",
+      currentPrice: "5652256.18",
       limit: {
         min: "1000",
         max: "5000",

@@ -13,10 +13,9 @@ export const getSpread: RequestHandler = (req, res) => {
       currentAd.operation === Operations.Sell ? currentAd : invertedAd;
     const buyAd =
       currentAd.operation === Operations.Buy ? currentAd : invertedAd;
-    const spread = Number(sellAd.currentPrice) - Number(buyAd.currentPrice);
-    const percentSpread = (spread / Number(buyAd.currentPrice) || 0) * 100;
+    const spread = (Number(sellAd.currentPrice) / Number(buyAd.currentPrice)) * 100 - 102;
 
-    return res.status(200).json({ spread: `${spread} (${percentSpread}% от цены покупки)`, status: ApiStatuses.Ok });
+    return res.status(200).json({ spread: `${spread} (Сумма продажи / сумма покупки * 100-102)`, status: ApiStatuses.Ok });
   }
 
   return res
