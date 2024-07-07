@@ -5,10 +5,13 @@ var constants_1 = require("./constants");
 var _utils_1 = require("./_utils");
 var powerOn = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         currentAd.power = true;
+
         return res.status(200).json({ status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });
@@ -16,10 +19,13 @@ var powerOn = function (req, res) {
 exports.powerOn = powerOn;
 var powerOff = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         currentAd.power = false;
+
         return res.status(200).json({ status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });
@@ -27,12 +33,14 @@ var powerOff = function (req, res) {
 exports.powerOff = powerOff;
 var getPower = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         return res.status(200).json({
             power: currentAd.power,
             status: constants_1.ApiStatuses.Ok,
         });
     }
+
     return res
         .status(400)
         .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });

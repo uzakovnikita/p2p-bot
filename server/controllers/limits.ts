@@ -1,22 +1,27 @@
-import { RequestHandler } from "express";
-import { ApiStatuses } from "./constants";
-import { getRequestedAdFromDb } from "./_utils";
-import { Errors } from "../constants";
-export const setLimit: RequestHandler = (req, res, next) => {
-  const { max, min } = req.body;
+import { RequestHandler } from 'express';
+
+import { Errors } from '../constants';
+import { getRequestedAdFromDb } from './_utils';
+import { ApiStatuses } from './constants';
+
+export const setLimit: RequestHandler = (req, res) => {
+  const { limit } = req.body;
   const currentAd = getRequestedAdFromDb(req);
-  if (max && min && currentAd) {
+
+  if (limit && currentAd) {
     const currentAd = getRequestedAdFromDb(req);
-    currentAd.limit = { max, min };
-    return res.status(200).json({ status: ApiStatuses.Ok, max, min });
+    currentAd.limit = limit;
+
+    return res.status(200).json({ status: ApiStatuses.Ok, limit });
   }
+
   return res.status(400).json({
-    error: "Invalid value of limit or ad not found",
+    error: 'Invalid value of limit or ad not found',
     status: ApiStatuses.Error,
   });
 };
 
-export const getLimit: RequestHandler = (req, res, next) => {
+export const getLimit: RequestHandler = (req, res) => {
   const currentAd = getRequestedAdFromDb(req);
 
   if (currentAd) {

@@ -10,6 +10,7 @@ exports.getAdFromDb = getAdFromDb;
 var getRequestedAdFromDb = function (req) {
     var queryAd = req.params.ad, dataAd = req.body.ab;
     debugger;
+
     return (0, exports.getAdFromDb)(queryAd || dataAd);
 };
 exports.getRequestedAdFromDb = getRequestedAdFromDb;

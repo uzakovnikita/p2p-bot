@@ -6,13 +6,16 @@ var _utils_1 = require("./_utils");
 var constants_2 = require("./constants");
 var getSpread = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         var invertedAd = (0, _utils_1.getAdFromDb)((0, _utils_1.mapOperationByAd)(currentAd.type));
         var sellAd = currentAd.operation === constants_1.Operations.Sell ? currentAd : invertedAd;
         var buyAd = currentAd.operation === constants_1.Operations.Buy ? currentAd : invertedAd;
         var spread = Number(sellAd.currentPrice) - Number(buyAd.currentPrice);
+
         return res.status(200).json({ spread: spread, status: constants_2.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ status: constants_2.ApiStatuses.Error, error: constants_2.Errors.AdNotFound });

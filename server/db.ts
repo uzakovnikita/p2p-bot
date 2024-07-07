@@ -5,14 +5,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5210001.0',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228300',
-        max: '6228400',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.SberBuy,
@@ -22,14 +16,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5652256.18',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228500',
-        max: '6228700',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.SberSell,
@@ -39,14 +27,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5157907.41',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228300',
-        max: '6228400',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.TinkBuy,
@@ -56,14 +38,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5652256.18',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228500',
-        max: '6228700',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.TinkSell,
@@ -73,14 +49,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5652256.18',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228500',
-        max: '6228700',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.RaifBuy,
@@ -90,14 +60,8 @@ export const db = {
     {
       power: false,
       currentPrice: '5652256.18',
-      limit: {
-        min: '1000',
-        max: '5000',
-      },
-      priceInterval: {
-        min: '6228500',
-        max: '6228700',
-      },
+      limit: 3000,
+      priceInterval: 6222300,
       priceStep: '1',
       spread: '',
       type: Ads.RaifSell,

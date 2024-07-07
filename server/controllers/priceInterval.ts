@@ -1,7 +1,9 @@
-import { RequestHandler } from "express";
-import { ApiStatuses } from "./constants";
-import { getRequestedAdFromDb } from "./_utils";
-import { Errors } from "../constants";
+import { RequestHandler } from 'express';
+
+import { Errors } from '../constants';
+import { getRequestedAdFromDb } from './_utils';
+import { ApiStatuses } from './constants';
+
 export const setPriceInterval: RequestHandler = (req, res) => {
   const { max, min } = req.body;
   const currentAd = getRequestedAdFromDb(req);
@@ -9,11 +11,12 @@ export const setPriceInterval: RequestHandler = (req, res) => {
   if (max && min && currentAd) {
     const currentAd = getRequestedAdFromDb(req);
     currentAd.priceInterval = { max, min };
+
     return res.status(200).json({ status: ApiStatuses.Ok, max, min });
   }
 
   return res.status(400).json({
-    error: "Invalid value of priceInterval or ad not found",
+    error: 'Invalid value of priceInterval or ad not found',
     status: ApiStatuses.Error,
   });
 };

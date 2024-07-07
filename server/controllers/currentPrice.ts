@@ -1,7 +1,8 @@
-import { ApiStatuses } from './constants';
-import { Errors } from '../constants';
 import { RequestHandler } from 'express';
+
+import { Errors } from '../constants';
 import { getRequestedAdFromDb } from './_utils';
+import { ApiStatuses } from './constants';
 
 export const getCurrentPrice: RequestHandler = (req, res) => {
   const currentAd = getRequestedAdFromDb(req);

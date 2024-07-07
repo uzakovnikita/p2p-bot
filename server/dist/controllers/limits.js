@@ -6,11 +6,14 @@ var _utils_1 = require("./_utils");
 var setLimit = function (req, res, next) {
     var limit = req.body.limit;
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (limit.max && limit.min && currentAd) {
         var currentAd_1 = (0, _utils_1.getRequestedAdFromDb)(req);
         currentAd_1.limit = limit;
+
         return res.status(200).json({ status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ error: "Invalid value of limit or ad not found", status: constants_1.ApiStatuses.Error });
@@ -18,12 +21,14 @@ var setLimit = function (req, res, next) {
 exports.setLimit = setLimit;
 var getLimit = function (req, res, next) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         return res.status(200).json({
             limit: currentAd.limit,
             status: constants_1.ApiStatuses.Ok,
         });
     }
+
     return res
         .status(400)
         .json({ error: constants_1.Errors.AdNotFound, status: constants_1.ApiStatuses.Error });

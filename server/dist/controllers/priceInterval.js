@@ -6,11 +6,14 @@ var _utils_1 = require("./_utils");
 var setPriceInterval = function (req, res) {
     var priceInterval = req.body.priceInterval;
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (priceInterval.max && priceInterval.min && currentAd) {
         var currentAd_1 = (0, _utils_1.getRequestedAdFromDb)(req);
         currentAd_1.priceInterval = priceInterval;
+
         return res.status(200).json({ status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({
@@ -21,12 +24,14 @@ var setPriceInterval = function (req, res) {
 exports.setPriceInterval = setPriceInterval;
 var getPriceInterval = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         return res.status(200).json({
             limit: currentAd.priceInterval,
             status: constants_1.ApiStatuses.Ok,
         });
     }
+
     return res
         .status(400)
         .json({ error: constants_1.Errors.AdNotFound, status: constants_1.ApiStatuses.Error });

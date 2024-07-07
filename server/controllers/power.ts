@@ -1,19 +1,22 @@
-import { RequestHandler } from "express";
-import { ApiStatuses } from "./constants";
-import { getRequestedAdFromDb } from "./_utils";
-import { db } from "../db";
-import { Errors } from "../constants";
+import { RequestHandler } from 'express';
+
+import { Errors } from '../constants';
+import { db } from '../db';
+import { getRequestedAdFromDb } from './_utils';
+import { ApiStatuses } from './constants';
+
 export const powerOn: RequestHandler = (req, res) => {
   const currentAd = getRequestedAdFromDb(req);
 
   if (currentAd) {
     currentAd.power = true;
+
     return res.status(200).json({ status: ApiStatuses.Ok });
   }
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.Error });
 };
 
 export const powerOff: RequestHandler = (req, res) => {
@@ -21,12 +24,13 @@ export const powerOff: RequestHandler = (req, res) => {
 
   if (currentAd) {
     currentAd.power = false;
+
     return res.status(200).json({ status: ApiStatuses.Ok });
   }
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.Error });
 };
 
 export const getPower: RequestHandler = (req, res) => {
@@ -41,13 +45,13 @@ export const getPower: RequestHandler = (req, res) => {
 
   return res
     .status(400)
-    .json({ status: ApiStatuses.Error, error: Errors.AdNotFound });
+    .json({ error: Errors.AdNotFound, status: ApiStatuses.Error });
 };
 
 export const getWorkingAds: RequestHandler = (_, res) => {
   return res.status(200).json({
     ads: db.ads.filter((ad) => ad.power).map((ad) => ad.type),
-    ids:  db.ads.filter((ad) => ad.power).map((ad) => ad.id),
+    ids: db.ads.filter((ad) => ad.power).map((ad) => ad.id),
     status: ApiStatuses.Ok,
   });
 };

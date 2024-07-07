@@ -6,10 +6,13 @@ var _utils_1 = require("./_utils");
 var setPriceStep = function (req, res) {
     var priceStep = req.body.priceStep;
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         currentAd.priceStep = priceStep;
+
         return res.status(200).json({ status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ error: constants_1.Errors.AdNotFound, status: constants_1.ApiStatuses.Error });
@@ -17,11 +20,13 @@ var setPriceStep = function (req, res) {
 exports.setPriceStep = setPriceStep;
 var getPriceStep = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         return res
             .status(200)
             .json({ priceStep: currentAd.priceStep, status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });

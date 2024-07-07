@@ -5,11 +5,13 @@ var _utils_1 = require("./_utils");
 var constants_1 = require("./constants");
 var getCurrentPrice = function (req, res) {
     var currentAd = (0, _utils_1.getRequestedAdFromDb)(req);
+
     if (currentAd) {
         return res
             .status(200)
             .json({ currentPrice: currentAd.currentPrice, status: constants_1.ApiStatuses.Ok });
     }
+
     return res
         .status(400)
         .json({ status: constants_1.ApiStatuses.Error, error: constants_1.Errors.AdNotFound });
