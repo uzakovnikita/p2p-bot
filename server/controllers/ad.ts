@@ -2,7 +2,7 @@ import { RequestHandler } from 'express';
 
 import { Errors } from '../constants';
 import { db } from '../db';
-import { getRequestedAdFromDb } from './_utils';
+import { getAdFromDb, getRequestedAdFromDb } from './_utils';
 import { ApiStatuses } from './constants';
 
 export const getAdId: RequestHandler = (req, res) => {
@@ -18,8 +18,8 @@ export const getAdId: RequestHandler = (req, res) => {
 };
 
 export const setAdId: RequestHandler = (req, res) => {
-  const { id } = req.body;
-  const currentAd = getRequestedAdFromDb(req);
+  const { id, ad } = req.body;
+  const currentAd = getAdFromDb(ad);
 
   if (currentAd && id) {
     currentAd.id = id;
