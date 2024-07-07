@@ -18,7 +18,7 @@ export const getSpread: RequestHandler = (req, res) => {
       (Number(sellAd.currentPrice) / Number(buyAd.currentPrice)) * 100 - 102;
 
     return res.status(200).json({
-      spread: `${spread} (Сумма продажи / сумма покупки * 100-102)`,
+      spread,
       status: ApiStatuses.Ok,
     });
   }

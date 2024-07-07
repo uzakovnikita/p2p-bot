@@ -4,7 +4,11 @@ import { Errors } from '../constants';
 import { getRequestedAdFromDb } from './_utils';
 import { ApiStatuses } from './constants';
 
-export const setPriceStep: RequestHandler = (req, res) => {
+export const setPriceStep: RequestHandler<
+  never,
+  { status: ApiStatuses; error?: Errors },
+  { priceStep: string }
+> = (req, res) => {
   const { priceStep } = req.body;
   const currentAd = getRequestedAdFromDb(req);
 

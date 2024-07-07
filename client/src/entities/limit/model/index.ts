@@ -1,4 +1,1 @@
-export type Limit = {
-  max: string;
-  min: string;
-};
+export type Limit = { limit: string };

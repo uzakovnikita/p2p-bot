@@ -13,6 +13,8 @@ export enum Pages {
   SberSell = 'sber_sell',
   TinkBuy = 'tink_buy',
   TinkSell = 'tink_sell',
+  RaifBuy = 'raif_buy',
+  RaifSell = 'raif_sell',
   NotFound = 'not_found',
 }
 
@@ -21,4 +23,15 @@ export enum Ads {
   SberSell = 'sber_sell',
   TinkBuy = 'tink_buy',
   TinkSell = 'tink_sell',
+  RaifBuy = 'raif_buy',
+  RaifSell = 'raif_sell',
 }
+
+export const AdsIntoOperationWaysMap = {
+  [Ads.SberBuy]: OperationWays.Buy,
+  [Ads.TinkBuy]: OperationWays.Buy,
+  [Ads.RaifBuy]: OperationWays.Buy,
+  [Ads.SberSell]: OperationWays.Sell,
+  [Ads.TinkSell]: OperationWays.Sell,
+  [Ads.RaifSell]: OperationWays.Sell,
+};

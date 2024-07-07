@@ -1,4 +1,1 @@
-export type PriceInterval = {
-  min: string;
-  max: string;
-};
+export type PriceInterval = { priceInterval: string };

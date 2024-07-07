@@ -34,9 +34,7 @@ export const mapOperationByAd = (ad: Ads) => {
       return Ads.SberSell;
     case Ads.TinkBuy:
       return Ads.TinkSell;
-    case Ads.SberSell:
-      return Ads.SberBuy;
-    case Ads.TinkSell:
-      return Ads.TinkBuy;
+    case Ads.RaifBuy:
+      return Ads.RaifBuy;
   }
 };

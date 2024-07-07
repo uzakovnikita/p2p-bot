@@ -5,14 +5,14 @@ import { getRequestedAdFromDb } from './_utils';
 import { ApiStatuses } from './constants';
 
 export const setPriceInterval: RequestHandler = (req, res) => {
-  const { max, min } = req.body;
+  const { priceInterval } = req.body;
   const currentAd = getRequestedAdFromDb(req);
 
-  if (max && min && currentAd) {
+  if (priceInterval && currentAd) {
     const currentAd = getRequestedAdFromDb(req);
-    currentAd.priceInterval = { max, min };
+    currentAd.priceInterval = priceInterval;
 
-    return res.status(200).json({ status: ApiStatuses.Ok, max, min });
+    return res.status(200).json({ status: ApiStatuses.Ok, priceInterval });
   }
 
   return res.status(400).json({

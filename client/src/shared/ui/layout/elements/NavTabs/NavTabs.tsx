@@ -1,10 +1,9 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import { Pages } from "../../../constants";
-import { Link, useLocation } from "react-router-dom";
-
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { Pages } from '../../../../constants';
+import { Link, useLocation } from 'react-router-dom';
 
 interface LinkTabProps {
   label?: string;
@@ -17,7 +16,7 @@ function LinkTab(props: LinkTabProps) {
     <Tab
       component={Link}
       to={props.href}
-      aria-current={props.selected && "page"}
+      aria-current={props.selected && 'page'}
       {...props}
     />
   );
@@ -31,12 +30,21 @@ export function NavTabs() {
     `/${Pages.SberSell}`,
     `/${Pages.TinkBuy}`,
     `/${Pages.TinkSell}`,
+    `/${Pages.RaifBuy}`,
+    `/${Pages.RaifSell}`,
   ];
 
   const currentTab = routerLists.indexOf(pathname);
 
   return (
-    <Box sx={{ width: "100%", zIndex: 10, opacity: 1, bgcolor: "background.paper" }}>
+    <Box
+      sx={{
+        width: '100%',
+        zIndex: 10,
+        opacity: 1,
+        bgcolor: 'background.paper',
+      }}
+    >
       <Tabs
         value={currentTab}
         aria-label="nav tabs example"
@@ -48,6 +56,8 @@ export function NavTabs() {
         <LinkTab label="сбербанк продать" href={`/${Pages.SberSell}`} />
         <LinkTab label="тинькофф купить" href={`/${Pages.TinkBuy}`} />
         <LinkTab label="тинькофф продать" href={`/${Pages.TinkSell}`} />
+        <LinkTab label="райфазен купить" href={`/${Pages.RaifBuy}`} />
+        <LinkTab label="райфазен продать" href={`/${Pages.RaifSell}`} />
       </Tabs>
     </Box>
   );
