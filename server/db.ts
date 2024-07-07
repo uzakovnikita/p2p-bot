@@ -6,7 +6,7 @@ export const db = {
       power: false,
       currentPrice: '5210001.0',
       limit: 3000,
-      priceInterval: 6222300,
+      priceInterval: 4979000,
       priceStep: '1',
       spread: '',
       type: Ads.SberBuy,
