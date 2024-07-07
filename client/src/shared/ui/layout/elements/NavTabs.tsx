@@ -3,22 +3,8 @@ import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Pages } from "../../../constants";
-import { Link, matchPath, useLocation } from "react-router-dom";
-function samePageLinkNavigation(
-  event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-) {
-  if (
-    event.defaultPrevented ||
-    event.button !== 0 || // ignore everything but left-click
-    event.metaKey ||
-    event.ctrlKey ||
-    event.altKey ||
-    event.shiftKey
-  ) {
-    return false;
-  }
-  return true;
-}
+import { Link, useLocation } from "react-router-dom";
+
 
 interface LinkTabProps {
   label?: string;

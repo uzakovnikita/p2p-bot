@@ -1,4 +1,4 @@
 export enum ApiStatuses {
-  Ok = "ok",
-  Error = "error",
+  Ok = 'ok',
+  Error = 'error',
 }

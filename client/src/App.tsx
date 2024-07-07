@@ -1,24 +1,29 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import "./App.css";
 import { Ad } from "./pages/ad";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 import { Layout } from "./shared/ui/layout";
 import { Ads, Pages } from "./shared/constants";
 import { NotFound } from "./pages/notFound";
 import { useEffect } from "react";
 import { getWorkingAds } from "./entities/ad";
 import { globalStore } from "./shared/store/global.store";
+
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+import "./App.css";
+
 function App() {
+  
   useEffect(() => {
     (async () => {
       const workingAds = await getWorkingAds();
       globalStore.setWorkingAds = workingAds;
     })();
-  });
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

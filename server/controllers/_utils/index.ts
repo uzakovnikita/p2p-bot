@@ -1,9 +1,8 @@
-import { Request } from "express";
-import { db } from "../../db";
-import { Ads } from "../../models/constants";
+import { Request } from 'express';
+import { db } from '../../db';
+import { Ads } from '../../models/constants';
 
 export const getAdFromDb = (ad: Ads | string) => {
-  console.log(db.ads.find(e => console.log(e)))
   return db.ads.find((item) => {
     return item.type === ad;
   });

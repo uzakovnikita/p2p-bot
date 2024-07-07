@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express'
 import {
   getLimit,
   setLimit,
@@ -18,31 +18,31 @@ import {
   getAdIds,
   getAdById,
   getAllAds,
-} from "./controllers";
-import { ApiStatuses } from "./controllers/constants";
-import { Errors } from "./constants";
+} from './controllers'
+import { ApiStatuses } from './controllers/constants'
+import { Errors } from './constants'
 
-export const routerApi = Router();
+export const routerApi = Router()
 
-routerApi.get("/limits", getLimit);
-routerApi.post("/limits", setLimit);
-routerApi.get("/price_step", getPriceStep);
-routerApi.post("/price_step", setPriceStep);
-routerApi.get("/power", getPower);
-routerApi.post("/power_on", powerOn);
-routerApi.post("/power_off", powerOff);
-routerApi.get("/spread", getSpread);
-routerApi.get("/current_price", getCurrentPrice);
-routerApi.post("/current_price", setCurrentPrice);
-routerApi.get("/price_interval", getPriceInterval);
-routerApi.post("/price_interval", setPriceInterval);
-routerApi.get("/working_ads", getWorkingAds);
-routerApi.get("/ad_id", getAdId);
-routerApi.post("/ad_id", setAdId);
-routerApi.get("/ad_ids", getAdIds);
-routerApi.get("/ad_by_id", getAdById);
-routerApi.get("/all_ads", getAllAds);
+routerApi.get('/limits', getLimit)
+routerApi.post('/limits', setLimit)
+routerApi.get('/price_step', getPriceStep)
+routerApi.post('/price_step', setPriceStep)
+routerApi.get('/power', getPower)
+routerApi.post('/power_on', powerOn)
+routerApi.post('/power_off', powerOff)
+routerApi.get('/spread', getSpread)
+routerApi.get('/current_price', getCurrentPrice)
+routerApi.post('/current_price', setCurrentPrice)
+routerApi.get('/price_interval', getPriceInterval)
+routerApi.post('/price_interval', setPriceInterval)
+routerApi.get('/working_ads', getWorkingAds)
+routerApi.get('/ad_id', getAdId)
+routerApi.post('/ad_id', setAdId)
+routerApi.get('/ad_ids', getAdIds)
+routerApi.get('/ad_by_id', getAdById)
+routerApi.get('/all_ads', getAllAds)
 
-routerApi.all("*", (req, res) => {
-  res.status(404).json({ status: ApiStatuses.Error, error: Errors.NotFound });
-});
+routerApi.all('*', (req, res) => {
+  res.status(404).json({ status: ApiStatuses.Error, error: Errors.NotFound })
+})

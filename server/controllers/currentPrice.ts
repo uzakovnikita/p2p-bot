@@ -1,7 +1,7 @@
-import { RequestHandler } from "express";
-import { getRequestedAdFromDb } from "./_utils";
-import { ApiStatuses } from "./constants";
-import { Errors } from "../constants";
+import { ApiStatuses } from './constants';
+import { Errors } from '../constants';
+import { RequestHandler } from 'express';
+import { getRequestedAdFromDb } from './_utils';
 
 export const getCurrentPrice: RequestHandler = (req, res) => {
   const currentAd = getRequestedAdFromDb(req);
