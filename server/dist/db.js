@@ -3,25 +3,73 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.db = void 0;
 var constants_1 = require("./models/constants");
 exports.db = {
-    ads: Array(4)
-        .fill(0, 3)
-        .map(function (val) {
-        return {
+    ads: [
+        {
             power: false,
-            currentPrice: "",
-            limit: {
-                min: "",
-                max: "",
-            },
-            priceInterval: {
-                min: "",
-                max: "",
-            },
-            priceStep: "",
-            spread: "",
-            type: constants_1.Ads[val],
-            operation: constants_1.Operations[val % 2],
-        };
-    }),
+            currentPrice: '5210001.0',
+            limit: 3000,
+            priceInterval: 4979000,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.SberBuy,
+            operation: constants_1.Operations.Buy,
+            id: '8a8ac005-2294-486c-b0d5-8631c983cbbd',
+        },
+        {
+            power: false,
+            currentPrice: '5652256.18',
+            limit: 3000,
+            priceInterval: 6222300,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.SberSell,
+            operation: constants_1.Operations.Sell,
+            id: '68407e07-d42f-4ba6-8394-98020082cc72',
+        },
+        {
+            power: false,
+            currentPrice: '5157907.41',
+            limit: 3000,
+            priceInterval: 6222300,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.TinkBuy,
+            operation: constants_1.Operations.Buy,
+            id: '60f914ec-bacd-4540-a5c6-32c801fd9b93',
+        },
+        {
+            power: false,
+            currentPrice: '5652256.18',
+            limit: 3000,
+            priceInterval: 6222300,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.TinkSell,
+            operation: constants_1.Operations.Sell,
+            id: '6c8b883f-5d9c-49da-92b9-a1c8206ed257',
+        },
+        {
+            power: false,
+            currentPrice: '5652256.18',
+            limit: 3000,
+            priceInterval: 6222300,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.RaifBuy,
+            operation: constants_1.Operations.Buy,
+            id: '6c8b883f-5d9c-49da-92b9-a1c8206ed257',
+        },
+        {
+            power: false,
+            currentPrice: '5652256.18',
+            limit: 3000,
+            priceInterval: 6222300,
+            priceStep: '1',
+            spread: '',
+            type: constants_1.Ads.RaifSell,
+            operation: constants_1.Operations.Sell,
+            id: '6c8b883f-5d9c-49da-92b9-a1c8206ed257',
+        },
+    ],
 };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9kYi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSxnREFBcUQ7QUFFeEMsUUFBQSxFQUFFLEdBQUc7SUFDaEIsR0FBRyxFQUFFLEtBQUssQ0FBQyxDQUFDLENBQUM7U0FDVixJQUFJLENBQUMsQ0FBQyxFQUFFLENBQUMsQ0FBQztTQUNWLEdBQUcsQ0FBTSxVQUFDLEdBQUc7UUFDWixPQUFPO1lBQ0wsS0FBSyxFQUFFLEtBQUs7WUFDWixZQUFZLEVBQUUsRUFBRTtZQUNoQixLQUFLLEVBQUU7Z0JBQ0wsR0FBRyxFQUFFLEVBQUU7Z0JBQ1AsR0FBRyxFQUFFLEVBQUU7YUFDUjtZQUNELGFBQWEsRUFBRTtnQkFDYixHQUFHLEVBQUUsRUFBRTtnQkFDUCxHQUFHLEVBQUUsRUFBRTthQUNSO1lBQ0QsU0FBUyxFQUFFLEVBQUU7WUFDYixNQUFNLEVBQUUsRUFBRTtZQUNWLElBQUksRUFBRSxlQUFHLENBQUMsR0FBRyxDQUFDO1lBQ2QsU0FBUyxFQUFFLHNCQUFVLENBQUMsR0FBRyxHQUFHLENBQUMsQ0FBQztTQUMvQixDQUFDO0lBQ0osQ0FBQyxDQUFDO0NBQ0wsQ0FBQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZGIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9kYi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSxnREFBcUQ7QUFFeEMsUUFBQSxFQUFFLEdBQUc7SUFDaEIsR0FBRyxFQUFFO1FBQ0g7WUFDRSxLQUFLLEVBQUUsS0FBSztZQUNaLFlBQVksRUFBRSxXQUFXO1lBQ3pCLEtBQUssRUFBRSxJQUFJO1lBQ1gsYUFBYSxFQUFFLE9BQU87WUFDdEIsU0FBUyxFQUFFLEdBQUc7WUFDZCxNQUFNLEVBQUUsRUFBRTtZQUNWLElBQUksRUFBRSxlQUFHLENBQUMsT0FBTztZQUNqQixTQUFTLEVBQUUsc0JBQVUsQ0FBQyxHQUFHO1lBQ3pCLEVBQUUsRUFBRSxzQ0FBc0M7U0FDM0M7UUFDRDtZQUNFLEtBQUssRUFBRSxLQUFLO1lBQ1osWUFBWSxFQUFFLFlBQVk7WUFDMUIsS0FBSyxFQUFFLElBQUk7WUFDWCxhQUFhLEVBQUUsT0FBTztZQUN0QixTQUFTLEVBQUUsR0FBRztZQUNkLE1BQU0sRUFBRSxFQUFFO1lBQ1YsSUFBSSxFQUFFLGVBQUcsQ0FBQyxRQUFRO1lBQ2xCLFNBQVMsRUFBRSxzQkFBVSxDQUFDLElBQUk7WUFDMUIsRUFBRSxFQUFFLHNDQUFzQztTQUMzQztRQUNEO1lBQ0UsS0FBSyxFQUFFLEtBQUs7WUFDWixZQUFZLEVBQUUsWUFBWTtZQUMxQixLQUFLLEVBQUUsSUFBSTtZQUNYLGFBQWEsRUFBRSxPQUFPO1lBQ3RCLFNBQVMsRUFBRSxHQUFHO1lBQ2QsTUFBTSxFQUFFLEVBQUU7WUFDVixJQUFJLEVBQUUsZUFBRyxDQUFDLE9BQU87WUFDakIsU0FBUyxFQUFFLHNCQUFVLENBQUMsR0FBRztZQUN6QixFQUFFLEVBQUUsc0NBQXNDO1NBQzNDO1FBQ0Q7WUFDRSxLQUFLLEVBQUUsS0FBSztZQUNaLFlBQVksRUFBRSxZQUFZO1lBQzFCLEtBQUssRUFBRSxJQUFJO1lBQ1gsYUFBYSxFQUFFLE9BQU87WUFDdEIsU0FBUyxFQUFFLEdBQUc7WUFDZCxNQUFNLEVBQUUsRUFBRTtZQUNWLElBQUksRUFBRSxlQUFHLENBQUMsUUFBUTtZQUNsQixTQUFTLEVBQUUsc0JBQVUsQ0FBQyxJQUFJO1lBQzFCLEVBQUUsRUFBRSxzQ0FBc0M7U0FDM0M7UUFDRDtZQUNFLEtBQUssRUFBRSxLQUFLO1lBQ1osWUFBWSxFQUFFLFlBQVk7WUFDMUIsS0FBSyxFQUFFLElBQUk7WUFDWCxhQUFhLEVBQUUsT0FBTztZQUN0QixTQUFTLEVBQUUsR0FBRztZQUNkLE1BQU0sRUFBRSxFQUFFO1lBQ1YsSUFBSSxFQUFFLGVBQUcsQ0FBQyxPQUFPO1lBQ2pCLFNBQVMsRUFBRSxzQkFBVSxDQUFDLEdBQUc7WUFDekIsRUFBRSxFQUFFLHNDQUFzQztTQUMzQztRQUNEO1lBQ0UsS0FBSyxFQUFFLEtBQUs7WUFDWixZQUFZLEVBQUUsWUFBWTtZQUMxQixLQUFLLEVBQUUsSUFBSTtZQUNYLGFBQWEsRUFBRSxPQUFPO1lBQ3RCLFNBQVMsRUFBRSxHQUFHO1lBQ2QsTUFBTSxFQUFFLEVBQUU7WUFDVixJQUFJLEVBQUUsZUFBRyxDQUFDLFFBQVE7WUFDbEIsU0FBUyxFQUFFLHNCQUFVLENBQUMsSUFBSTtZQUMxQixFQUFFLEVBQUUsc0NBQXNDO1NBQzNDO0tBQ0Y7Q0FDRixDQUFDIn0=
